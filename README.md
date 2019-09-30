@@ -5,12 +5,12 @@ This example shows how to use ASP.NET Core 2.2 WEB API MVC.
 
 **Prerequisites:** 
 [.NET Core SDK 2.2](https://dotnet.microsoft.com/download) or higher.
-[NodeJS](https://nodejs.org/en/)
-[Angular CLI](https://angular.io/cli)
+[NodeJS](https://nodejs.org/en/) || 
+[Angular CLI](https://angular.io/cli) ||
 [Sql Server 2017](https://www.microsoft.com/en-us/sql-server/sql-server-2017)
 
 **Code Editing:** 
-[Visual Studio Code](https://code.visualstudio.com/)
+[Visual Studio Code](https://code.visualstudio.com/) ||
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
 ## Getting started
@@ -22,12 +22,12 @@ git clone https://github.com/tarikulcse2/Misfit-Assignment.git
 
 ## Database Connection
 Update the `appsettings.json` file with these values:
-* `ConnectionStrings` - correct dbname, servername
+* `ConnectionStrings` - correct database name, server name
 
 ```bash
 execute sql from file database-schema.sql
 ```
-### Server Site Run
+### Server-Side Application Run
 ```bash
 cd server
 dotnet restore
@@ -36,7 +36,7 @@ dotner run
 ```
 dotnet core server run http://localhost:3300 
 
-### Client Site Run
+### Client-Side Application Run
 ```bash
 cd client
 npm install
