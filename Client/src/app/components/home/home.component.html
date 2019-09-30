@@ -1,0 +1,51 @@
+<div class="container">
+  <form [formGroup]="userFrom" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">User Name</label>
+      <input type="text" formControlName="userName" class="form-control" placeholder="Enter User Name">
+      <div
+        *ngIf="userFrom.controls['userName'].invalid && (userFrom.controls['userName'].dirty || userFrom.controls['userName'].touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="userFrom.controls['userName'].errors.required">
+          User Name is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">First Number</label>
+      <input type="number" formControlName="firstNumber" class="form-control" placeholder="Enter First Number">
+      <div
+        *ngIf="userFrom.controls.firstNumber.invalid && (userFrom.controls.firstNumber.dirty || userFrom.controls.firstNumber.touched)"
+        class="alert alert-danger">
+
+        <div *ngIf="userFrom.controls.firstNumber.errors.required">
+          First Number is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Second Number</label>
+      <input type="number" formControlName="secondNumber" class="form-control" placeholder="Enter Second Number">
+      <div
+      *ngIf="userFrom.controls.secondNumber.invalid && (userFrom.controls.secondNumber.dirty || userFrom.controls.secondNumber.touched)"
+      class="alert alert-danger">
+
+      <div *ngIf="userFrom.controls.secondNumber.errors.required">
+        Second Number is required.
+      </div>
+    </div>
+    </div>
+    <button type="submit" [disabled]="!userFrom.valid" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<div class="container" *ngIf="(result | json) != '{}'" >
+  <h4>Calculation Result</h4>
+  <ul class="list-group">
+    <li class="list-group-item">Add: {{ result.add }}</li>
+    <li class="list-group-item">Multiply: {{ result.multiply }}</li>
+    <li class="list-group-item">Divide: {{ result.divide }}</li>
+    <li class="list-group-item">GreatestCommonDivisor: {{ result.greatestCommonDivisor }}</li>
+  </ul>
+</div>

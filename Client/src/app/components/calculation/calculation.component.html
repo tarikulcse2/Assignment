@@ -1,0 +1,21 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>First Number</th>
+        <th>Second Number</th>
+        <th>Date Of Calculation</th>
+        <th>Sum</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let calculation of calculations">
+        <td> {{ calculation.userName }}</td>
+        <td> {{ calculation.firstNumber }}</td>
+        <td> {{ calculation.secondNumber }}</td>
+        <td> {{ calculation.dateOfCalculation | date: 'dd/MM/yyyy' }}</td>
+        <td> {{ calculation.total }}</td>
+      </tr>
+      
+    </tbody>
+  </table>
