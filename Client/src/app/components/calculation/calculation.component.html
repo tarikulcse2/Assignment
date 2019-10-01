@@ -1,4 +1,15 @@
 <table class="table">
+    <tr><td colspan="2"><input type="text" #user placeholder="Search By User Name" />  
+      <button (click)="searchUser(user.value)">Search</button> </td>
+    <td colspan="3">
+        From:<input type="date" #startDate placeholder="30/09/2019" />  
+        To:<input type="date" #endDate placeholder="30/09/2019" />  
+        <button (click)="searchDate(startDate.value,endDate.value)">Search</button> 
+    </td>
+    </tr>
+</table>
+
+<table class="table">
     <thead>
       <tr>
         <th>User Name</th>
@@ -15,6 +26,10 @@
         <td> {{ calculation.secondNumber }}</td>
         <td> {{ calculation.dateOfCalculation | date: 'dd/MM/yyyy' }}</td>
         <td> {{ calculation.total }}</td>
+      </tr>
+
+      <tr *ngIf="calculations.length==0">
+        <td colspan="4">No Data Found</td>
       </tr>
       
     </tbody>
