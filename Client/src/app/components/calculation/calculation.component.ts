@@ -20,13 +20,18 @@ export class CalculationComponent implements OnInit {
       this.allCalculations = res as ICalculationViewModel[] || [];
     }
     );
-  }
-  searchUser(value: string) {
-    this.calculations = this.allCalculations.filter(s => s.userName === value);
-  }
 
+    this.username.valueChanges.subscribe(v => {
+      this.calculations = this.allCalculations.filter(s => s.userName.includes(v));
+      if (v == null || v === '') {
+        this.calculations = this.allCalculations;
+      }
+    });
+  }
   searchDate(sD: string, eD: string) {
     this.calculations = this.allCalculations.filter(s =>
-      new Date(s.dateOfCalculation) <= new Date(sD) && new Date(s.dateOfCalculation) >= new Date(eD));
+      new Date(s.dateOfCalculation).setHours(0, 0, 0, 0) >= new Date(sD).setHours(0, 0, 0, 0) &&
+      new Date(s.dateOfCalculation).setHours(0, 0, 0, 0) <= new Date(eD).setHours(0, 0, 0, 0)
+      );
   }
 }
